@@ -17,7 +17,7 @@ namespace MonoDevelop.D
 	{
 		#region Properties
 		Gtk.VPaned vpaned;
-		TextEditor inputEditor, editor;
+		MonoTextEditor inputEditor, editor;
 		Gtk.Button executeButton;
 		Gtk.Button abortButton;
 		const string lastInputStringPropId = "MonoD.ExpressionEvaluation.LastInputString";
@@ -30,8 +30,8 @@ namespace MonoDevelop.D
 			base.Initialize(window);
 
 			// Call ctors
-			inputEditor = new TextEditor() { Name = "input", Events = Gdk.EventMask.AllEventsMask, HeightRequest = 80 };
-			editor = new TextEditor() { Name = "output", Events = Gdk.EventMask.AllEventsMask };
+			inputEditor = new MonoTextEditor() { Name = "input", Events = Gdk.EventMask.AllEventsMask, HeightRequest = 80 };
+			editor = new MonoTextEditor() { Name = "output", Events = Gdk.EventMask.AllEventsMask };
 			vpaned = new Gtk.VPaned();
 			var scr1 = new Gtk.ScrolledWindow();
 			var scr2 = new Gtk.ScrolledWindow();

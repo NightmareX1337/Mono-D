@@ -54,8 +54,8 @@ namespace MonoDevelop.D
 			var sourceEditor = origDoc.GetContent <MonoDevelop.SourceEditor.SourceEditorView> ();
 			if (sourceEditor != null) {
 				try {
-				TextEditor.Caret.Location = sourceEditor.TextEditor.Caret.Location;
-				TextEditor.VAdjustment.Value = sourceEditor.TextEditor.VAdjustment.Value;
+				MonoTextEditor.Caret.Location = sourceEditor.MonoTextEditor.Caret.Location;
+				MonoTextEditor.VAdjustment.Value = sourceEditor.MonoTextEditor.VAdjustment.Value;
 				} catch {
 				}
 			}
@@ -66,8 +66,8 @@ namespace MonoDevelop.D
 			var sourceEditor = origDoc.GetContent <MonoDevelop.SourceEditor.SourceEditorView> ();
 			if (sourceEditor != null) {
 				try {
-				sourceEditor.TextEditor.Caret.Location = TextEditor.Caret.Location;
-				sourceEditor.TextEditor.VAdjustment.Value = TextEditor.VAdjustment.Value;
+				sourceEditor.MonoTextEditor.Caret.Location = MonoTextEditor.Caret.Location;
+				sourceEditor.MonoTextEditor.VAdjustment.Value = MonoTextEditor.VAdjustment.Value;
 				} catch {
 				}
 			}
@@ -134,9 +134,9 @@ namespace MonoDevelop.D
 
 		public bool TryReloadCoverageFile()
 		{
-			this.TextEditor.Document.ReadOnly = true;
+			this.MonoTextEditor.Document.ReadOnly = true;
 			this.Document.ReadOnlyCheckDelegate = ((int _) => false);
-			TextEditor.Document.MimeType = "text/x-d";
+			MonoTextEditor.Document.MimeType = "text/x-d";
 
 
 			var lstFile = SearchCovFile();
@@ -196,7 +196,7 @@ namespace MonoDevelop.D
 				this.bg = bg;
 			}
 
-			public override void DrawAfterEol (Mono.TextEditor.TextEditor textEditor, Cairo.Context cr, double y, EndOfLineMetrics lineHeight)
+			public override void DrawAfterEol (Mono.TextEditor.MonoTextEditor textEditor, Cairo.Context cr, double y, EndOfLineMetrics lineHeight)
 			{
 				using (var pango = cr.CreateLayout ()) {
 					pango.FontDescription = textEditor.Options.Font;
@@ -221,7 +221,7 @@ namespace MonoDevelop.D
 
 			var red = new Cairo.Color (1, 0, 0, 0.4);
 			var green = new Cairo.Color (0, 200, 0, 0.4);
-			var bg = TextEditor.Options.GetColorStyle ().BackgroundReadOnly.Color;
+			var bg = MonoTextEditor.Options.GetColorStyle ().BackgroundReadOnly.Color;
 			bg = new Cairo.Color (1.0 - bg.R, 1.0 - bg.G, 1.0 - bg.B, 0.4);
 
 			foreach (var kv in coverage) {
@@ -230,8 +230,8 @@ namespace MonoDevelop.D
 				lastMarkers.Add (mk);
 			}
 
-			TextEditor.TextViewMargin.PurgeLayoutCache();
-			TextEditor.Parent.QueueDraw();
+			MonoTextEditor.TextViewMargin.PurgeLayoutCache();
+			MonoTextEditor.Parent.QueueDraw();
 		}
 	}
 }

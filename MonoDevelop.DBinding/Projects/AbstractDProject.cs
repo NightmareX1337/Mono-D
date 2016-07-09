@@ -233,7 +233,7 @@ namespace MonoDevelop.D.Projects
 			return new MonoDevelop.D.Debugging.DExecutionCommand(GetOutputFileName(conf));
 		}
 
-		protected override void OnExecute (IProgressMonitor monitor, ExecutionContext context, ConfigurationSelector configuration)
+		protected override void OnExecute (ProgressMonitor monitor, ExecutionContext context, ConfigurationSelector configuration)
 		{
 			base.OnExecute (monitor, context, configuration);
 

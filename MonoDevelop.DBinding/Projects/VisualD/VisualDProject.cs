@@ -47,7 +47,7 @@ namespace MonoDevelop.D.Projects.VisualD
 			references = new VisualDProjectReferenceCollection (this);
 		}
 
-		protected override void OnSave(Core.IProgressMonitor monitor)
+		protected override void OnSave(Core.ProgressMonitor monitor)
 		{
 			//base.OnSave(monitor);
 		}

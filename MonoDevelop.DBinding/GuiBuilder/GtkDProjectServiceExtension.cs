@@ -31,7 +31,7 @@ namespace MonoDevelop.D
 	/// <summary>
 	/// Responsible for generating the gtkD-Code when building a project
 	/// </summary>
-	public class GtkDProjectServiceExtension : ProjectServiceExtension
+	public class GtkDProjectServiceExtension : ProjectService
 	{
 		public GtkDProjectServiceExtension ()
 		{

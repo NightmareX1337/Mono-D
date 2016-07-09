@@ -18,7 +18,7 @@ namespace MonoDevelop.D.Gui
 
 		#region Properties
 		Gtk.ScrolledWindow scrolledWindow;
-		TextEditor outputEditor;
+		MonoTextEditor outputEditor;
 		internal const string activateAutomatedCaretTrackingPropId = "MonoD.ExpressionEvaluation.TrackCaret";
 		Gtk.Button abortButton;
 		Thread evalThread;
@@ -35,7 +35,7 @@ namespace MonoDevelop.D.Gui
 			base.Initialize(pad);
 
 			// Init editor
-			outputEditor = new TextEditor();
+			outputEditor = new MonoTextEditor();
 			outputEditor.Events = Gdk.EventMask.AllEventsMask;
 			outputEditor.Name = "outputEditor";
 			outputEditor.TabsToSpaces = false;

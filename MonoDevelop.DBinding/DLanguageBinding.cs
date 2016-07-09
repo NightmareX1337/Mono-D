@@ -3,7 +3,7 @@ using MonoDevelop.Projects;
 
 namespace MonoDevelop.D
 {
-	public class DLanguageBinding: ILanguageBinding
+	public class DLanguageBinding: LanguageBinding
 	{
 		public static bool IsDFile(string fileName)
 		{

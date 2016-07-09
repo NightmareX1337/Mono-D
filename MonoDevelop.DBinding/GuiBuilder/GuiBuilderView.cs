@@ -29,6 +29,7 @@ using MonoDevelop.GtkCore.GuiBuilder;
 using MonoDevelop.Ide.Gui;
 using MonoDevelop.Core;
 using MonoDevelop.Projects;
+using MonoDevelop.Projects.Extensions;
 using MonoDevelop.Ide;
 using MonoDevelop.DesignerSupport;
 using MonoDevelop.DesignerSupport.Toolbox;
@@ -55,7 +56,7 @@ namespace MonoDevelop.D.GuiBuilder
 		string rootName;
 		object designerStatus;
 
-		public GuiBuilderView (IViewContent content, GuiBuilderWindow window): base (content)
+		public GuiBuilderView (ViewContent content, GuiBuilderWindow window): base (content)
 		{
 			rootName = window.Name;
 

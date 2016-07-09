@@ -30,7 +30,7 @@ namespace MonoDevelop.D.Projects.Dub.DefinitionFormats
 			return supportedDubFileFormats.Any((i) => i.CanLoad(file));
 		}
 
-		public DubSolution LoadAsSolution(string file, IProgressMonitor monitor)
+		public DubSolution LoadAsSolution(string file, ProgressMonitor monitor)
 		{
 			var sln = new DubSolution{
 				FileName = file,
@@ -56,7 +56,7 @@ namespace MonoDevelop.D.Projects.Dub.DefinitionFormats
 
 			foreach (var item in sln.Items)
 			{
-				var prj = item as SolutionEntityItem;
+				var prj = item as SolutionItem;
 				if (prj == null)
 					continue;
 
@@ -84,7 +84,7 @@ namespace MonoDevelop.D.Projects.Dub.DefinitionFormats
 			LoadReferences
 		}
 
-		public DubProject LoadProject(string file, Solution parentSolution, IProgressMonitor monitor, LoadFlags flags = LoadFlags.LoadReferences, DubProject superProject = null)
+		public DubProject LoadProject(string file, Solution parentSolution, ProgressMonitor monitor, LoadFlags flags = LoadFlags.LoadReferences, DubProject superProject = null)
 		{
 			if(monitor != null)
 				monitor.BeginTask("Load dub project '" + file + "'", 1);
@@ -102,7 +102,7 @@ namespace MonoDevelop.D.Projects.Dub.DefinitionFormats
 			}
 		}
 
-		public void LoadSubProjects(DubProject defaultPackage, IProgressMonitor monitor)
+		public void LoadSubProjects(DubProject defaultPackage, ProgressMonitor monitor)
 		{
 			var sln = defaultPackage.ParentSolution;
 

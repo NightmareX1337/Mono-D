@@ -2,6 +2,7 @@
 using MonoDevelop.Components.Commands;
 using MonoDevelop.Refactoring;
 using MonoDevelop.Ide.Commands;
+using MonoDevelop.Ide.Editor.Extension;
 
 namespace MonoDevelop.D.Refactoring
 {

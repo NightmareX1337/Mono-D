@@ -51,14 +51,14 @@ namespace MonoDevelop.D.Projects.Dub
 			return en;
 		}
 
-		protected override void DoExecute (IProgressMonitor monitor, ExecutionContext context, ConfigurationSelector configuration)
+		protected override void DoExecute (ProgressMonitor monitor, ExecutionContext context, ConfigurationSelector configuration)
 		{
 			useOriginalBasePath = true;
 			base.DoExecute (monitor, context, configuration);
 			useOriginalBasePath = false;
 		}
 
-		protected override BuildResult DoBuild (IProgressMonitor monitor, ConfigurationSelector configuration)
+		protected override BuildResult DoBuild (ProgressMonitor monitor, ConfigurationSelector configuration)
 		{
 			useOriginalBasePath = true;
 			var res = base.DoBuild (monitor, configuration);

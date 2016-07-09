@@ -2,6 +2,7 @@ using System;
 using MonoDevelop.Ide.Gui.Content;
 using System.Threading;
 using MonoDevelop.Core;
+using MonoDevelop.Ide.Editor.Extension;
 
 namespace MonoDevelop.D.Gui
 {

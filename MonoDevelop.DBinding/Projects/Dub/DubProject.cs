@@ -358,7 +358,7 @@ namespace MonoDevelop.D.Projects.Dub
 			base.PopulateOutputFileList(list, configuration);
 		}
 
-		protected override BuildResult DoBuild(IProgressMonitor monitor, ConfigurationSelector configuration)
+		protected override BuildResult DoBuild(ProgressMonitor monitor, ConfigurationSelector configuration)
 		{
 			return DubBuilder.BuildProject(this, monitor, configuration);
 		}
@@ -409,7 +409,7 @@ namespace MonoDevelop.D.Projects.Dub
 			return targetType.ToLowerInvariant() == "executable";
 		}
 
-		protected override void DoExecute(IProgressMonitor monitor, ExecutionContext context, ConfigurationSelector configuration)
+		protected override void DoExecute(ProgressMonitor monitor, ExecutionContext context, ConfigurationSelector configuration)
 		{
 			DubBuilder.ExecuteProject(this, monitor, context, configuration);
 		}
@@ -419,13 +419,13 @@ namespace MonoDevelop.D.Projects.Dub
 			return new DubProjectConfiguration { Name = name };
 		}
 
-		protected override void DoClean(IProgressMonitor monitor, ConfigurationSelector configuration)
+		protected override void DoClean(ProgressMonitor monitor, ConfigurationSelector configuration)
 		{
 			base.DoClean(monitor, configuration);
 		}
 		#endregion
 
-		public override void Save(IProgressMonitor monitor)
+		public override void Save(ProgressMonitor monitor)
 		{
 			monitor.ReportSuccess("Skip saving dub project.");
 		}

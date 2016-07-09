@@ -75,7 +75,7 @@ namespace MonoDevelop.D.Projects.Dub
 			GC.ReRegisterForFinalize (this);
 		}
 
-		protected override BuildResult OnBuild (MonoDevelop.Core.IProgressMonitor monitor, ConfigurationSelector configuration)
+		protected override BuildResult OnBuild (MonoDevelop.Core.ProgressMonitor monitor, ConfigurationSelector configuration)
 		{
 			var s = StartupItem as Project;
 

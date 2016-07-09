@@ -9,10 +9,11 @@ using MonoDevelop.D.Resolver;
 using D_Parser.Resolver.TypeResolution;
 using System.Reflection;
 using MonoDevelop.Core;
+using MonoDevelop.Ide.Editor.Extension;
 
 namespace MonoDevelop.D
 {
-	class DEditorCompletionExtension:CompletionTextEditorExtension, MonoDevelop.Debugger.IDebuggerExpressionResolver
+	class DEditorCompletionExtension : CompletionTextEditorExtension, MonoDevelop.Debugger.IDebuggerExpressionResolver
 	{
 		#region Properties / Init
 		int lastTriggerOffset;
@@ -236,8 +237,8 @@ namespace MonoDevelop.D
 			updater.FinishUpdate();
 			return ret;
 		}
-		
-		public override ParameterDataProvider HandleParameterCompletion(CodeCompletionContext completionContext, char completionChar)
+
+		public override ParameterHintingData HandleParameterCompletion(CodeCompletionContext completionContext, char completionChar)
 		{
 			switch (completionChar)
 			{

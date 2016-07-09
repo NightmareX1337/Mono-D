@@ -49,7 +49,7 @@ namespace MonoDevelop.D.Gui
 			public ISyntaxRegion sr;
 		}
 
-		protected override Window CreateTooltipWindow (TextEditor editor, int offset, Gdk.ModifierType modifierState, TooltipItem item)
+		protected override Gtk.Window CreateTooltipWindow(MonoTextEditor editor, int offset, Gdk.ModifierType modifierState, TooltipItem item)
 		{
 			var doc = IdeApp.Workbench.ActiveDocument;
 			if (doc == null)
@@ -81,7 +81,7 @@ namespace MonoDevelop.D.Gui
 			return result;
 		}
 
-		public override Window ShowTooltipWindow (TextEditor editor, int offset, Gdk.ModifierType modifierState, int mouseX, int mouseY, TooltipItem item)
+		public override Gtk.Window ShowTooltipWindow (MonoTextEditor editor, int offset, Gdk.ModifierType modifierState, int mouseX, int mouseY, TooltipItem item)
 		{
 			var titem = (item.Item as TTI).sr;
 			DestroyLastTooltipWindow ();
@@ -124,7 +124,7 @@ namespace MonoDevelop.D.Gui
 			return tipWindow;
 		}
 
-		protected override void GetRequiredPosition (TextEditor editor, Window tipWindow, out int requiredWidth, out double xalign)
+		protected override void GetRequiredPosition(MonoTextEditor editor, Gtk.Window tipWindow, out int requiredWidth, out double xalign)
 		{
 			var win = (TooltipInformationWindow)tipWindow;
 			requiredWidth = win.Allocation.Width;
@@ -132,7 +132,7 @@ namespace MonoDevelop.D.Gui
 		}
 		#endregion
 
-		public override TooltipItem GetItem(TextEditor editor, int offset)
+		public override TooltipItem GetItem(MonoTextEditor editor, int offset)
 		{
 			// Note: Normally, the document already should be open
 			var doc=IdeApp.Workbench.GetDocument(editor.Document.FileName);

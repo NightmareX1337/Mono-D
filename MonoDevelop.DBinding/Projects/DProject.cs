@@ -269,7 +269,7 @@ namespace MonoDevelop.D.Projects
 		}
 
 		static List<string> alreadyBuiltProjects = new List<string>();
-		protected override BuildResult DoBuild (IProgressMonitor monitor, ConfigurationSelector configuration)
+		protected override BuildResult DoBuild (ProgressMonitor monitor, ConfigurationSelector configuration)
 		{
 			// Handle pending events to ensure that files get saved right before the project is built
 			DispatchService.RunPendingEvents ();
@@ -312,7 +312,7 @@ namespace MonoDevelop.D.Projects
 			return false;
 		}
 
-		protected override void DoClean (IProgressMonitor monitor, ConfigurationSelector configuration)
+		protected override void DoClean (ProgressMonitor monitor, ConfigurationSelector configuration)
 		{
 			var cfg = GetConfiguration (configuration) as DProjectConfiguration;
 
@@ -369,7 +369,7 @@ namespace MonoDevelop.D.Projects
 			return cmd;
 		}
 
-		protected override void DoExecute (IProgressMonitor monitor, ExecutionContext context, ConfigurationSelector configuration)
+		protected override void DoExecute (ProgressMonitor monitor, ExecutionContext context, ConfigurationSelector configuration)
 		{
 			bool executeCustomCommand = 
 				ExtendedConfiguration != null && 

@@ -46,7 +46,7 @@ namespace MonoDevelop.D.Building
 				return Path.Combine (cfg.Project.BaseDirectory, ObjectDirectory(cfg));
 		}
 		IArgumentMacroProvider commonMacros;
-		readonly IProgressMonitor monitor;
+		readonly ProgressMonitor monitor;
 		List<string> BuiltObjects = new List<string> ();
 
 		/// <summary>
@@ -62,12 +62,12 @@ namespace MonoDevelop.D.Building
 		}
         #endregion
 
-		protected ProjectBuilder (IProgressMonitor monitor)
+		protected ProjectBuilder (ProgressMonitor monitor)
 		{
 			this.monitor = monitor;
 		}
 
-		public static BuildResult CompileProject (IProgressMonitor ProgressMonitor, DProject Project, ConfigurationSelector BuildConfigurationSelector)
+		public static BuildResult CompileProject (ProgressMonitor ProgressMonitor, DProject Project, ConfigurationSelector BuildConfigurationSelector)
 		{
 			return new ProjectBuilder (ProgressMonitor).Build (Project, BuildConfigurationSelector);
 		}
@@ -674,7 +674,7 @@ namespace MonoDevelop.D.Building
 				}
 		}
 
-		static void HandleOverLongArgumentStrings(IProgressMonitor mon,DCompilerConfiguration cmp, bool isLinking,ref string argstring, out string tempFile)
+		static void HandleOverLongArgumentStrings(ProgressMonitor mon,DCompilerConfiguration cmp, bool isLinking,ref string argstring, out string tempFile)
 		{
 			tempFile = null;
 
@@ -710,7 +710,7 @@ namespace MonoDevelop.D.Building
             string args,
             string baseDirectory,
 
-            IProgressMonitor monitor,
+            ProgressMonitor monitor,
             out string errorOutput,
             out string programOutput)
 		{

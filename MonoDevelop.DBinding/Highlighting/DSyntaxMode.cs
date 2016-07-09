@@ -585,7 +585,7 @@ namespace MonoDevelop.D.Highlighting
 				
 			}
 
-			public void ChangeForeColor(TextEditor editor, Chunk chunk, ref Cairo.Color color)
+			public void ChangeForeColor(MonoTextEditor editor, Chunk chunk, ref Cairo.Color color)
 			{
 				if (chunk.Length < 1)
 					return;

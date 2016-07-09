@@ -35,7 +35,7 @@ namespace MonoDevelop.D.Projects.Dub
 
 		}
 
-		public static BuildResult BuildProject(DubProject prj, IProgressMonitor mon, ConfigurationSelector sel)
+		public static BuildResult BuildProject(DubProject prj, ProgressMonitor mon, ConfigurationSelector sel)
 		{
 			var br = new BuildResult();
 
@@ -71,7 +71,7 @@ namespace MonoDevelop.D.Projects.Dub
 			return br;
 		}
 
-		public static void ExecuteProject(DubProject prj,IProgressMonitor monitor, ExecutionContext context, ConfigurationSelector configuration, string dubVerb = "run")
+		public static void ExecuteProject(DubProject prj,ProgressMonitor monitor, ExecutionContext context, ConfigurationSelector configuration, string dubVerb = "run")
 		{
 			bool isDebug = context.ExecutionHandler.GetType ().Name.StartsWith ("Debug");
 

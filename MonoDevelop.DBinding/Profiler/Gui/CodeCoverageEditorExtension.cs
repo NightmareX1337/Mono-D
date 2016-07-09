@@ -1,5 +1,6 @@
 ﻿using System;
 using MonoDevelop.Ide.Gui.Content;
+using MonoDevelop.Ide.Editor.Extension;
 
 namespace MonoDevelop.D.Profiler.Gui
 {

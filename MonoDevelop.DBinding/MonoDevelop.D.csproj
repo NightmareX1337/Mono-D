@@ -236,6 +236,7 @@
     <Compile Include="Parser\DParserWrapper.cs" />
     <Compile Include="Parser\FoldingParser.cs" />
     <Compile Include="Parser\ParsedDModule.cs" />
+    <Compile Include="Profiler\Gui\TextEditor.cs" />
     <Compile Include="Projects\AbstractDProject.cs" />
     <Compile Include="Projects\DProjectBinding.cs" />
     <Compile Include="Projects\DProject.cs" />
@@ -471,7 +472,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GuiBuilder\GtkDCore\" />
-    <Folder Include="Projects\Dub\DefinitionFormats\JSON\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Parser\DParser2\DParser2.csproj">

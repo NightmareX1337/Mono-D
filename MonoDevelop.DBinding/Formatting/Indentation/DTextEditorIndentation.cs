@@ -8,6 +8,7 @@ using MonoDevelop.Ide.CodeCompletion;
 using MonoDevelop.Ide.CodeTemplates;
 using MonoDevelop.Ide.Gui.Content;
 using MonoDevelop.SourceEditor;
+using MonoDevelop.Ide.Editor.Extension;
 
 /*
  * Note: Most of the code was stolen from ./main/src/addins/CSharpBinding/MonoDevelop.CSharp.Formatting/CSharpTextEditorIndentation.cs

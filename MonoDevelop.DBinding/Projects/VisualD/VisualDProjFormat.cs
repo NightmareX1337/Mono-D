@@ -79,7 +79,7 @@ namespace MonoDevelop.D.Projects.VisualD
 			return new List<FilePath>();
 		}
 
-		public void WriteFile (FilePath file, object obj, IProgressMonitor monitor)
+		public void WriteFile (FilePath file, object obj, ProgressMonitor monitor)
 		{
 			try
 			{
@@ -118,7 +118,7 @@ namespace MonoDevelop.D.Projects.VisualD
 			x.Close();
 		}
 
-		public object ReadFile (FilePath file, Type expectedType, IProgressMonitor monitor)
+		public object ReadFile (FilePath file, Type expectedType, ProgressMonitor monitor)
 		{
 			VisualDProject prj = null;
 

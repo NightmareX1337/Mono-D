@@ -54,7 +54,7 @@ namespace MonoDevelop.D.GuiBuilder
 		{
 		}
 
-		public virtual IViewContent CreateContent (FilePath fileName, string mimeType, Project ownerProject)
+		public virtual ViewContent CreateContent (FilePath fileName, string mimeType, Project ownerProject)
 		{
 			excludeThis = true;
 			var db = DisplayBindingService.GetDefaultViewBinding (fileName, mimeType, ownerProject);

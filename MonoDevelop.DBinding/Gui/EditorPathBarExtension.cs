@@ -6,6 +6,7 @@ using MonoDevelop.Core;
 using MonoDevelop.D.Completion;
 using MonoDevelop.D.Parser;
 using MonoDevelop.Ide;
+using MonoDevelop.Ide.Editor.Extension;
 using MonoDevelop.Ide.Gui;
 using MonoDevelop.Ide.Gui.Content;
 using MonoDevelop.Ide.TypeSystem;

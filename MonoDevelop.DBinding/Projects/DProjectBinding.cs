@@ -4,7 +4,7 @@ using System.IO;
 
 namespace MonoDevelop.D.Projects
 {
-	public class DProjectBinding:IProjectBinding
+	public class DProjectBinding : IProjectBinding
 	{
 		public bool CanCreateSingleFileProject(string sourceFile)
 		{

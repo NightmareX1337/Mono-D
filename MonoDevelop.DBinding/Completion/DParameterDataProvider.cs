@@ -11,7 +11,7 @@ using D_Parser.Resolver.TypeResolution;
 
 namespace MonoDevelop.D.Completion
 {
-	public class DParameterDataProvider : ParameterDataProvider
+	public class DParameterDataProvider : ParameterHintingData
 	{
 		Document doc;
 		ArgumentsResolutionResult args;

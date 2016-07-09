@@ -15,6 +15,7 @@ using MonoDevelop.DesignerSupport;
 using MonoDevelop.Ide;
 using MonoDevelop.Ide.Gui;
 using MonoDevelop.Ide.Gui.Content;
+using MonoDevelop.Ide.Editor.Extension;
 
 namespace MonoDevelop.D.Gui
 {

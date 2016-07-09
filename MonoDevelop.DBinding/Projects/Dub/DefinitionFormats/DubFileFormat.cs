@@ -8,13 +8,13 @@ using System.IO;
 
 namespace MonoDevelop.D.Projects.Dub.DefinitionFormats
 {
-	public class DubFileFormat : IFileFormat
+	public class DubFileFormat : FileFormat
 	{
 		public bool CanReadFile(FilePath file, Type expectedObjectType)
 		{
 			return DubFileManager.Instance.CanLoad(file.FileName) &&
 			(expectedObjectType.Equals(typeof(WorkspaceItem)) ||
-			expectedObjectType.Equals(typeof(SolutionEntityItem)));
+			expectedObjectType.Equals(typeof(SolutionItem)));
 		}
 
 		public bool CanWriteFile(object obj)
@@ -42,11 +42,11 @@ namespace MonoDevelop.D.Projects.Dub.DefinitionFormats
 			return fileName;
 		}
 
-		public object ReadFile(FilePath file, Type expectedType, IProgressMonitor monitor)
+		public object ReadFile(FilePath file, Type expectedType, ProgressMonitor monitor)
 		{
 			if (expectedType.IsAssignableFrom(typeof(WorkspaceItem)))
 				return DubFileManager.Instance.LoadAsSolution(file, monitor);
-			if (expectedType.IsAssignableFrom(typeof(SolutionEntityItem)))
+			if (expectedType.IsAssignableFrom(typeof(SolutionItem)))
 				return DubFileManager.Instance.LoadProject(file, Ide.IdeApp.Workspace.GetAllSolutions().First(), monitor);
 			return null;
 		}
@@ -58,7 +58,7 @@ namespace MonoDevelop.D.Projects.Dub.DefinitionFormats
 
 		public bool SupportsMixedFormats { get { return true; } }
 
-		public void WriteFile(FilePath file, object obj, IProgressMonitor monitor)
+		public void WriteFile(FilePath file, object obj, ProgressMonitor monitor)
 		{
 			//monitor.ReportError ("Can't write dub package information! Change it manually in the definition file!", new InvalidOperationException ());
 		}

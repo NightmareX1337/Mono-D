@@ -24,20 +24,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+
 using MonoDevelop.Ide.Gui.Content;
 using MonoDevelop.GtkCore.GuiBuilder;
 using MonoDevelop.Ide.Gui;
 using MonoDevelop.Core;
 using MonoDevelop.Projects;
+using MonoDevelop.Projects.Dom;
 using MonoDevelop.Projects.Extensions;
 using MonoDevelop.Ide;
 using MonoDevelop.DesignerSupport;
 using MonoDevelop.DesignerSupport.Toolbox;
-using System.ComponentModel;
-using Gtk;
 using MonoDevelop.Components.Commands;
 using MonoDevelop.Ide.Commands;
-using System.Collections.Generic;
+
+using Gtk;
 
 namespace MonoDevelop.D.GuiBuilder
 {

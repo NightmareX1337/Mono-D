@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MonoDevelop.Refactoring</name>
+    </assembly>
+    <members>
+        <member name="T:MonoDevelop.AnalysisCore.IssueMarker">
+            <summary>
+            The issue marker is used to set how an issue should be marked inside the text editor.
+            </summary>
+        </member>
+        <member name="F:MonoDevelop.AnalysisCore.IssueMarker.None">
+            <summary>
+            The issue is not shown inside the text editor. (But in the task bar)
+            </summary>
+        </member>
+        <member name="F:MonoDevelop.AnalysisCore.IssueMarker.WavedLine">
+            <summary>
+            The region is marked as underline in the severity color.
+            </summary>
+        </member>
+        <member name="F:MonoDevelop.AnalysisCore.IssueMarker.DottedLine">
+            <summary>
+            The region is marked as dotted line in the severity color.
+            </summary>
+        </member>
+        <member name="F:MonoDevelop.AnalysisCore.IssueMarker.GrayOut">
+            <summary>
+            The text is grayed out.
+            </summary>
+        </member>
+        <member name="F:MonoDevelop.CodeActions.CodeActionEditorExtension.FixAllDiagnosticProvider._getDocumentDiagnosticsAsync">
+            <summary>
+            Delegate to fetch diagnostics for any given document within the given fix all scope.
+            This delegate is invoked by <see cref="!:GetDocumentDiagnosticsAsync(Document, CancellationToken)"/> with the given <see cref="F:MonoDevelop.CodeActions.CodeActionEditorExtension.FixAllDiagnosticProvider._diagnosticIds"/> as arguments.
+            </summary>
+        </member>
+        <member name="F:MonoDevelop.CodeActions.CodeActionEditorExtension.FixAllDiagnosticProvider._getProjectDiagnosticsAsync">
+            <summary>
+            Delegate to fetch diagnostics for any given project within the given fix all scope.
+            This delegate is invoked by <see cref="M:MonoDevelop.CodeActions.CodeActionEditorExtension.FixAllDiagnosticProvider.GetProjectDiagnosticsAsync(Microsoft.CodeAnalysis.Project,System.Threading.CancellationToken)"/> and <see cref="M:MonoDevelop.CodeActions.CodeActionEditorExtension.FixAllDiagnosticProvider.GetAllDiagnosticsAsync(Microsoft.CodeAnalysis.Project,System.Threading.CancellationToken)"/>
+            with the given <see cref="F:MonoDevelop.CodeActions.CodeActionEditorExtension.FixAllDiagnosticProvider._diagnosticIds"/> as arguments.
+            The boolean argument to the delegate indicates whether or not to return location-based diagnostics, i.e.
+            (a) False => Return only diagnostics with <see cref="P:Microsoft.CodeAnalysis.Location.None"/>.
+            (b) True => Return all project diagnostics, regardless of whether or not they have a location.
+            </summary>
+        </member>
+        <member name="T:MonoDevelop.CodeActions.CodeRefactoringDescriptor">
+            <summary>
+            This class wraps a roslyn ICodeRefactoringProvider and adds required meta data to it.
+            </summary>
+        </member>
+        <member name="P:MonoDevelop.CodeActions.CodeRefactoringDescriptor.IdString">
+            <summary>
+            Gets the identifier string.
+            </summary>
+        </member>
+        <member name="P:MonoDevelop.CodeActions.CodeRefactoringDescriptor.Name">
+            <summary>
+            Gets the display name for this action.
+            </summary>
+        </member>
+        <member name="P:MonoDevelop.CodeActions.CodeRefactoringDescriptor.Language">
+            <summary>
+            Gets the language for this action.
+            </summary>
+        </member>
+        <member name="P:MonoDevelop.CodeActions.CodeRefactoringDescriptor.IsEnabled">
+            <summary>
+            Gets or sets a value indicating whether this code action is enabled by the user.
+            </summary>
+            <value><c>true</c> if this code action is enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:MonoDevelop.CodeActions.CodeRefactoringDescriptor.GetProvider">
+            <summary>
+            Gets the roslyn code action provider.
+            </summary>
+        </member>
+        <member name="T:MonoDevelop.CodeActions.ValidCodeAction">
+            <summary>
+            Represents a code action that's valid at a specific segment.
+            </summary>
+        </member>
+        <member name="T:MonoDevelop.CodeActions.ValidCodeDiagnosticAction">
+            <summary>
+            Represents a code action that's valid at a specific segment that was created as a action for a specific code diagnostic.
+            </summary>
+        </member>
+        <member name="P:MonoDevelop.CodeIssues.CodeDiagnosticDescriptor.IdString">
+            <summary>
+            Gets the identifier string.
+            </summary>
+        </member>
+        <member name="P:MonoDevelop.CodeIssues.CodeDiagnosticDescriptor.Name">
+            <summary>
+            Gets the display name for this issue.
+            </summary>
+        </member>
+        <member name="P:MonoDevelop.CodeIssues.CodeDiagnosticDescriptor.Languages">
+            <summary>
+            Gets the description of the issue provider (used in the option panel).
+            </summary>
+            <summary>
+            Gets the languages for this issue.
+            </summary>
+        </member>
+        <member name="P:MonoDevelop.CodeIssues.CodeDiagnosticDescriptor.IsEnabled">
+            <summary>
+            Gets or sets a value indicating whether this code action is enabled by the user.
+            </summary>
+            <value><c>true</c> if this code action is enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:MonoDevelop.CodeIssues.CodeDiagnosticDescriptor.GetProvider">
+            <summary>
+            Gets the roslyn code action provider.
+            </summary>
+        </member>
+        <member name="T:MonoDevelop.CodeIssues.CodeDiagnosticProvider">
+            <summary>
+            The code diagnostic provider gives a list of code diagnostic and fix providers from an arbitrary source.
+            </summary>
+        </member>
+        <member name="T:MonoDevelop.CodeIssues.BuiltInCodeDiagnosticProvider">
+            <summary>
+            Provides all IDE code diagnostics and fix provider.
+            (Scans the app domain for providers)
+            </summary>
+        </member>
+        <member name="M:MonoDevelop.CodeIssues.ISuppressionFixProvider.CanBeSuppressedOrUnsuppressed(Microsoft.CodeAnalysis.Diagnostic)">
+            <summary>
+            Returns true if the given diagnostic can be suppressed or unsuppressed.
+            </summary>
+        </member>
+        <member name="M:MonoDevelop.CodeIssues.ISuppressionFixProvider.GetSuppressionsAsync(Microsoft.CodeAnalysis.Document,Microsoft.CodeAnalysis.Text.TextSpan,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.Diagnostic},System.Threading.CancellationToken)">
+            <summary>
+            Gets one or more add suppression or remove suppression fixes for the specified diagnostics represented as a list of <see cref="T:Microsoft.CodeAnalysis.CodeActions.CodeAction"/>'s.
+            </summary>
+            <returns>A list of zero or more potential <see cref="T:MonoDevelop.CodeIssues.CodeFix"/>'es. It is also safe to return null if there are none.</returns>
+        </member>
+        <member name="M:MonoDevelop.CodeIssues.ISuppressionFixProvider.GetSuppressionsAsync(Microsoft.CodeAnalysis.Project,System.Collections.Generic.IEnumerable{Microsoft.CodeAnalysis.Diagnostic},System.Threading.CancellationToken)">
+            <summary>
+            Gets one or more add suppression or remove suppression fixes for the specified no-location diagnostics represented as a list of <see cref="T:Microsoft.CodeAnalysis.CodeActions.CodeAction"/>'s.
+            </summary>
+            <returns>A list of zero or more potential <see cref="T:MonoDevelop.CodeIssues.CodeFix"/>'es. It is also safe to return null if there are none.</returns>
+        </member>
+        <member name="M:MonoDevelop.CodeIssues.ISuppressionFixProvider.GetFixAllProvider">
+            <summary>
+            Gets an optional <see cref="T:Microsoft.CodeAnalysis.CodeFixes.FixAllProvider"/> that can fix all/multiple occurrences of diagnostics fixed by this fix provider.
+            Return null if the provider doesn't support fix all/multiple occurrences.
+            Otherwise, you can return any of the well known fix all providers from <see cref="T:Microsoft.CodeAnalysis.CodeFixes.WellKnownFixAllProviders"/> or implement your own fix all provider.
+            </summary>
+        </member>
+    </members>
+</doc>
